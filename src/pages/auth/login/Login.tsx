@@ -9,7 +9,7 @@ export default function Login() {
   return (
     <div>
       <h2 className="text-xl font-semibold uppercase">Đăng nhập</h2>
-      <p className="nt-4 text=[#717171]">Chào mừng bạn đến với MALE SNEAKER</p>
+      <p className="mt-4 text-[#717171]">Chào mừng bạn đến với MALE SNEAKER</p>
 
       <div className="mt-8">
         <Form

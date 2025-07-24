@@ -13,8 +13,6 @@ export default function Register() {
           style={{ maxWidth: 600 }}
           initialValues={{ remember: true }}
           layout="vertical"
-        //   onFinish={handleOnFinish}
-          // onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
