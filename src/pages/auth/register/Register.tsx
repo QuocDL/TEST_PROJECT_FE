@@ -1,6 +1,29 @@
 import { Form, Input } from "antd";
+import { useToast } from "../../../context/ToastProvider";
+import { registerApi } from "../../../services/auth.service";
+import type { IPayloadRegister } from "../../../types/auth";
+
+interface IFormField extends IPayloadRegister {
+  confirmPassword: string;
+}
 
 export default function Register() {
+  const toast = useToast();
+  const [form] = Form.useForm();
+
+  const handleOnFinish = async (body: IFormField) => {
+    try {
+      const res = await registerApi(body);
+    if (res?.success) {
+      toast("success", res?.message);
+      form.resetFields();
+    }
+    } catch (error: any) {
+      if(!error?.response?.data?.success){
+        toast("info", error?.response?.data?.message)
+      }
+    }
+  };
   return (
     <div className="w-full">
       <h2 className="text-xl font-semibold uppercase">Đăng ký</h2>
@@ -9,10 +32,12 @@ export default function Register() {
       </p>
       <div className="mt-8">
         <Form
+          form={form}
           name="basic"
           style={{ maxWidth: 600 }}
           initialValues={{ remember: true }}
           layout="vertical"
+          onFinish={handleOnFinish}
           autoComplete="off"
         >
           <Form.Item
