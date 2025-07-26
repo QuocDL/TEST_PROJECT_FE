@@ -13,7 +13,7 @@ export default function Footer() {
             <div>
               <h1 className="text-2xl font-bold">MALE SNEAKER</h1>
             </div>
-            <p className="text-sm">
+            <p className="text-sm mt-2 ">
               Chất lượng làm nên thương hiệu – Phục vụ bằng cả trái tim
             </p>
           </div>
@@ -33,13 +33,13 @@ export default function Footer() {
                   href="mailto:phucnguyen11204@gmail.com"
                   className="text-blue-600 hover:underline"
                 >
-                  phucnguyen11204@gmail.com
+                  phucnguyen1122004@gmail.com
                 </a>
               </li>
               <li>
                 <i className="pe-7s-call"></i>{" "}
                 <a href="tel:(012)800456789987" className="hover:underline">
-                  (+84) 842 116 855
+                  (+84) 842 119 999
                 </a>
               </li>
             </ul>
@@ -110,13 +110,16 @@ export default function Footer() {
         <div className="container mx-auto mt-12 px-4 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
           <div className="w-full md:w-1/2">
             <h6 className="text-lg font-semibold mb-3">Email vào, quà ra!</h6>
-            <form className="flex">
+            <form className="flex items-center border-b border-gray-400 py-2">
               <input
                 type="email"
                 placeholder="Nhập địa chỉ email của bạn"
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none"
+                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               />
-              <button className="bg-black text-white px-5 py-2 rounded-r-md hover:bg-gray-800">
+              <button
+                type="submit"
+                className="text-black-600 font-semibold hover:underline"
+              >
                 Xác nhận
               </button>
             </form>
