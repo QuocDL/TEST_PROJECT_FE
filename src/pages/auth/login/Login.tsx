@@ -29,14 +29,13 @@ export default function Login() {
     }
   };
   return (
-    <div>
+    <div className="w-full">
       <h2 className="text-xl font-semibold uppercase">Đăng nhập</h2>
       <p className="mt-4 text-[#717171]">Chào mừng bạn đến với MALE SNEAKER</p>
 
       <div className="mt-8">
         <Form
           name="basic"
-          style={{ maxWidth: 600 }}
           initialValues={{ remember: true }}
           layout="vertical"
           onFinish={onFinish}

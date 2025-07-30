@@ -14,18 +14,18 @@ export default function Register() {
   const handleOnFinish = async (body: IFormField) => {
     try {
       const res = await registerApi(body);
-    if (res?.success) {
-      toast("success", res?.message);
-      form.resetFields();
-    }
+      if (res?.success) {
+        toast("success", res?.message);
+        form.resetFields();
+      }
     } catch (error: any) {
-      if(!error?.response?.data?.success){
-        toast("info", error?.response?.data?.message)
+      if (!error?.response?.data?.success) {
+        toast("info", error?.response?.data?.message);
       }
     }
   };
   return (
-    <div className="w-full">
+    <div>
       <h2 className="text-xl font-semibold uppercase">Đăng ký</h2>
       <p className="mt-4 text-[#717171]">
         Trở thành thành viên của MALE SNEAKER để nhận được những ưu đãi mới nhất
@@ -34,7 +34,6 @@ export default function Register() {
         <Form
           form={form}
           name="basic"
-          style={{ maxWidth: 600 }}
           initialValues={{ remember: true }}
           layout="vertical"
           onFinish={handleOnFinish}
@@ -52,7 +51,10 @@ export default function Register() {
             name="email"
             rules={[
               { required: true, message: "Vui lòng nhập email!" },
-              { type: "email", message: "Vui lòng nhập đúng định dạng email!" },
+              {
+                type: "email",
+                message: "Vui lòng nhập đúng định dạng email!",
+              },
             ]}
           >
             <Input className="h-[45px]" placeholder="Nhập email của bạn" />
