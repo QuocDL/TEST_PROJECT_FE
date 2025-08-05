@@ -118,7 +118,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="text-black-600 font-semibold hover:underline"
+                className="text-black-600 whitespace-nowrap font-semibold hover:opacity-85 duration-300 cursor-pointer"
               >
                 Xác nhận
               </button>
