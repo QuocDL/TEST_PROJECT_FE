@@ -11,3 +11,7 @@
     margin: 0 15px;
   }
 }
+.custom-disabled-item {
+  color: black !important;
+  cursor: default !important;
+}

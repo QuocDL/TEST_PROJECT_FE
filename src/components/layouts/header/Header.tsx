@@ -1,12 +1,14 @@
 import {
+  FormOutlined,
   InfoCircleOutlined,
   LogoutOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
+  SmileOutlined,
   UnorderedListOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Badge, Dropdown, type MenuProps } from "antd";
+import { Badge, Dropdown, Tooltip, type MenuProps } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 
@@ -20,12 +22,32 @@ export default function Header() {
   };
   const items: MenuProps["items"] = [
     {
-      key: "1",
+      key: "0",
+      onClick: () => undefined,
+      label: (
+        <Tooltip placement="left" title={user?.userName}>
+          <p className="truncate max-w-[100px]">
+            Chào {user?.userName?.split(" ").pop()}
+          </p>
+        </Tooltip>
+      ),
+      icon: <SmileOutlined />,
+      className: "custom-disabled-item",
+    },
+    user?.role === "admin"
+      ? {
+          key: "1",
+          label: <Link to="/admin">Quản trị</Link>,
+          icon: <FormOutlined />,
+        }
+      : null,
+    {
+      key: "2",
       label: <Link to={"/profile"}>Thông tin</Link>,
       icon: <InfoCircleOutlined />,
     },
     {
-      key: "2",
+      key: "3",
       label: <Link to={"/profile/my-orders"}>Đơn hàng</Link>,
       icon: <UnorderedListOutlined />,
     },
@@ -34,15 +56,17 @@ export default function Header() {
     },
     {
       label: "Đăng xuất",
-      key: "3",
+      key: "4",
       icon: <LogoutOutlined />,
       onClick: handleLogout,
     },
-  ];
+  ].filter(Boolean) as MenuProps["items"];
   return (
     <header className="container py-8 flex items-center justify-between">
       <div>
-        <h1 className="text-2xl font-bold">MALE SNEAKER</h1>
+        <Link to={"/"}>
+          <h1 className="text-2xl font-bold">MALE SNEAKER</h1>
+        </Link>
       </div>
       <nav>
         <ul className="flex gap-3">

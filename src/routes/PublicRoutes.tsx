@@ -1,10 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
 import ClientLayout from "../components/layouts/ClientLayout";
-import HomePage from "../pages/home/HomePage";
 import AuthPage from "../pages/auth/AuthPage";
+import HomePage from "../pages/home/HomePage";
 import ProductDetail from "../pages/productDetail/ProductDetail";
 
-const routes = [
+const PublicRoutes = [
   {
     path: "/",
     element: <ClientLayout />,
@@ -12,21 +11,22 @@ const routes = [
       {
         path: "",
         element: <HomePage />,
-      },{
+      },
+      {
         path: "productDetail",
         element: <ProductDetail />,
       },
 
       {
         path: "/login",
-        element: <AuthPage/>,
+        element: <AuthPage />,
       },
       {
         path: "/register",
-        element: <AuthPage/>,
-      }
+        element: <AuthPage />,
+      },
     ],
   },
 ];
 
-export const PublicRoutes = createBrowserRouter(routes);
+export default PublicRoutes;

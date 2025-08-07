@@ -1,5 +1,5 @@
 import { Form, Input } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useToast } from "../../../context/ToastProvider";
 import { loginApi } from "../../../services/auth.service";
 import type { IPayloadRegister } from "../../../types/auth";
@@ -14,13 +14,18 @@ export default function Login() {
   ) => {
     try {
       const res = await loginApi(values);
-      if (res?.success) {
+      if (res.success) {
         toast("success", res.message);
-        setUser(res.data.foundUser);
-        setIsLogged(true);
         localStorage.setItem("user", JSON.stringify(res.data.foundUser));
         localStorage.setItem("accessToken", res.data.accessToken);
-        nav("/");
+        setUser(res.data.foundUser);
+        console.log(res);
+        if (res.data.foundUser.role === "admin") {
+          nav("/admin");
+        } else {
+          nav("/");
+        }
+        setIsLogged(true);
       }
     } catch (error: any) {
       if (!error?.response?.data?.success) {
@@ -46,7 +51,7 @@ export default function Login() {
             name="email"
             rules={[
               { required: true, message: "Vui lòng nhập email" },
-              { type: "email", message: "Vui long nhập đúng " },
+              { type: "email", message: "Vui lòng nhập đúng" },
             ]}
           >
             <Input

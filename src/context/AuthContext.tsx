@@ -19,10 +19,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
   useEffect(() => {
     const user = localStorage.getItem("user");
+    const userData = user ? JSON.parse(user) : null;
+    setUser(userData);
     setIsLogged(!!user);
-    if (user) {
-      setIsLogged(true);
-    }
   }, []);
   console.log(user);
   return (
