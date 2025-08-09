@@ -9,18 +9,18 @@ const HomeNewBanner: React.FC = () => {
   }, []);
 
   return (
-    <section id="home-new-banner" className="w-full py-8 bg-white">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+    <section id="home-new-banner" className="max-w-default default:mx-auto mx-8 py-8 bg-white">
+      <div className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div
-            className={`pl-5 transition-opacity duration-1000 ease-in-out ${
+            className={`transition-opacity duration-1000 ease-in-out ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-10"
             }`}
           >
             <div className="home-new-banner-item">
-            
+
                 <div className="relative overflow-hidden rounded-lg h-[400px] md:h-[500px]">
                   <img
                     className="w-full h-full object-cover"
@@ -37,7 +37,7 @@ const HomeNewBanner: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              
+
             </div>
           </div>
           <div
