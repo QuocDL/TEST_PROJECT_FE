@@ -1,10 +1,9 @@
 import {
-  BgColorsOutlined,
   DatabaseOutlined,
   LineChartOutlined,
   ProductOutlined,
   ProfileOutlined,
-  ShoppingOutlined,
+  ShoppingOutlined
 } from "@ant-design/icons";
 import type { JSX } from "react";
 
@@ -53,15 +52,6 @@ export const menuGroups: IMenuItem[] = [
     children: [
       { label: "Tất cả sản phẩm", route: "/admin/products" },
       { label: "Tạo mới sản phẩm", route: "/admin/products/create" },
-    ],
-  },
-
-  {
-    icon: <BgColorsOutlined />,
-    label: "Quản lý thuộc tính",
-    children: [
-      { label: "Màu sắc", route: "/admin/variants/color" },
-      { label: "Kích cỡ", route: "/admin/variants/size" },
     ],
   },
 ];
